@@ -1,0 +1,30 @@
+
+<div class="app-home-component">
+    <div class="tasks">
+        <div>- can you make nation cards 'hilite' in some way when user mouse-over, select</div>
+        <div>- when click on a nation card, fill out the info below</div>
+        <div>- when select a nation, can u make image at #flag fade in (css)</div>
+        <div>- add any cool features u can think of</div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center" class="nations">
+        <div *ngFor="let nation of nations" class="nation-div">
+            <div fxLayout="column" (mouseover)="hilite(nation)" class="nation">
+                <div>{{nation.alpha3Code}}</div>
+                <img [src]="nation.flag" alt="" draggable="false" class="image">
+            </div>
+        </div>
+    </div>
+    <div class="hilite">
+        {{hilitedName}}
+    </div>
+    <div class="active">
+        <div>name:</div>
+        <div>native name:</div>
+        <div>capital:</div>
+        <div>latitude:</div>
+        <div>longitude:</div>
+    </div>
+    <div>
+        <img #flag width=256 style="border:1px dashed blue;">
+    </div>
+</div>
