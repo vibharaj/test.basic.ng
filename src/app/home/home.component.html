@@ -4,6 +4,8 @@
         <div>- can you make nation cards 'hilite' in some way when user mouse-over, select</div>
         <div>- when click on a nation card, fill out the info below</div>
         <div>- when select a nation, can u make image at #flag fade in (css)</div>
+        <div>- how might you support having the 'active' nation reflected in the browser url ? ex. http://localhost:4200/home/gbr</div>
+        <div>- can u make the ui 'mobile responsive' ? (ex. have info/flag in a column instead of a row)</div>
         <div>- add any cool features u can think of</div>
     </div>
     <div fxLayout="row" fxLayoutAlign="start center" class="nations">
@@ -17,14 +19,16 @@
     <div class="hilite">
         {{hilitedName}}
     </div>
-    <div class="active">
-        <div>name:</div>
-        <div>native name:</div>
-        <div>capital:</div>
-        <div>latitude:</div>
-        <div>longitude:</div>
-    </div>
-    <div>
-        <img #flag width=256 style="border:1px dashed blue;">
+    <div fxLayout="row" fxLayoutAlign="space-between start" class=info>
+        <div class="active">
+            <div>name:</div>
+            <div>native name:</div>
+            <div>capital:</div>
+            <div>latitude:</div>
+            <div>longitude:</div>
+        </div>
+        <div>
+            <img #flag style="border:1px dashed blue;width:320px;height:240px;">
+        </div>
     </div>
 </div>

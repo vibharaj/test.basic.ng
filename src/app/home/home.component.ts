@@ -12,7 +12,7 @@ import { Nation } from '../model/nation';
 export class HomeComponent implements OnInit,OnDestroy
 {
     nations: Nation[] = [];
-    hilitedName = '';
+    hilitedName = '...';
 
     constructor(
         private http:HttpClient,
