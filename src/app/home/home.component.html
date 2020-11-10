@@ -1,6 +1,6 @@
 
 <div class="app-home-component">
-    <div class="tasks">
+    <!-- <div class="tasks">
         <div>- can you make nation cards 'hilite' in some way when user mouse-over, select</div>
         <div>- when click on a nation card, fill out the info below</div>
         <div>- when select a nation, can u make image at #flag fade in (css)</div>
@@ -8,32 +8,57 @@
         <div>- can u make the ui 'mobile responsive' ? (ex. have info/flag in a column instead of a row)</div>
         <div>- can u write a unit test that verifies there are 250 nations ?</div>
         <div>- add any cool features u can think of</div>
-    </div>
+    </div> -->
     <p>
        Number of Nations:  {{nations.length}}
     </p>
-    <div fxLayout="row" fxLayout.sm = "column" fxLayout.xs = "column"
-         fxLayoutAlign="start center" class="nations">
-        <div *ngFor="let nation of nations" (click)="FillNationInfo(nation)" class="nation-div">
+ 
+    <agm-map [latitude]="lat" [longitude]="lng">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      </agm-map>
+    <div>
+      <div fxLayout="row" fxLayout.sm = "column" fxLayout.xs = "column"
+         fxLayoutAlign="start center" fxLayoutWrap fxLayoutGap="0.5%" class="nations">
+        <div @fade fxFlex="20%" *ngFor="let nation of nations" (click)="FillNationInfo(nation)" class="nation-div">
             <div fxLayout="column"  class="nation">
                 <div>{{nation.alpha3Code}}</div>
                 <img [src]="nation.flag" alt="" draggable="false" class="image">
             </div>
         </div>
+      </div>
     </div>
     <div class="hilite">
         {{hilitedName}}
     </div>
-    <div fxLayout="row" fxLayoutAlign="space-between start" class=info>
-        <div class="active">
-            <div>name:{{hilitedName}}</div>
+    <div fxLayout="row"  fxLayoutGap="20%" fxLayoutAlign="start" class=info>
+        <mat-card fxFlex="40%" class="active">
+          <mat-card-title>
+            Country Name: {{hilitedName}}
+          </mat-card-title>
+          <mat-card-content>
             <div>native name:{{hilitedNativeName}}</div>
             <div>capital:{{hilitedCapital}}</div>
             <div>latitude:{{hilitedLatitude}}</div>
             <div>longitude:{{hilitedLongitude}}</div>
-        </div>
-        <div>
-            <img src="{{flag}}" class = "fade" style="border:1px dashed blue;width:320px;height:240px;">
-        </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card fxFlex="32%" class="active">
+            <img @fade src="{{flag}}" style="border:1px dashed blue;width:320px;height:240px;">
+        </mat-card>
     </div>
+    <div>
+        <p>Using Angular Material</p>
+    </div>
+    <div class = "cards" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="start center">
+        <mat-card class="card-picture" *ngFor="let nation of nations">
+          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column" style="font: size 18px;">
+            {{nation.alpha3Code}}
+          </mat-card-title>
+          <img mat-card-image [src]="nation.flag">
+          <mat-card-content>
+            {{nation.name}}
+          </mat-card-content>
+        </mat-card>
+      </div>
+
 </div>

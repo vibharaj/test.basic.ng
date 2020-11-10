@@ -35,10 +35,11 @@ describe('HomeComponent', () => {
     expect(component.nations).toBeTruthy();
   });
 
-  it('Check number of nations', waitForAsync(() => {
+
+  it('Check number of nations', async(() => {
     setTimeout(() => {
       expect(component.nations.length).toEqual(250);
-    }, 100);
+    }, 2000);
   }));
 
 });
